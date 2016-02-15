@@ -44,12 +44,10 @@ public class UserMealsUtil {
         List<UserMeal> tmp =
                 mealList.stream()
                         .filter(cal -> cal.getCalories() >= caloriesPerDay)
-                        .filter(st -> st.getDateTime().getSecond() >= startTime.getSecond())
-                        .filter(et -> et.getDateTime().getSecond() <= endTime.getSecond())
+                        .filter(st -> TimeUtil.isBetween(st.getDateTime().toLocalTime(), startTime, endTime))
                         .collect(Collectors.toList());
 
         List<UserMealWithExceed> result = new ArrayList<>();
-
         tmp.stream().forEach(t -> result.add(new UserMealWithExceed(t.getDateTime(), t.getDescription(), t.getCalories(),true)));
     return result;
     }
