@@ -25,4 +25,5 @@ public class UserServlet extends HttpServlet {
         response.sendRedirect("userList.jsp");
     }
 
+
 }
