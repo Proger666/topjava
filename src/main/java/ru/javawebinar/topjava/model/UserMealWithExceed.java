@@ -13,6 +13,8 @@ public class UserMealWithExceed {
 
     protected final int calories;
 
+
+
     protected final boolean exceed;
 
     public UserMealWithExceed(LocalDateTime dateTime, String description, int calories, boolean exceed) {
@@ -23,4 +25,17 @@ public class UserMealWithExceed {
     }
 
      public String getDescription(){return description;}
+
+    public boolean isExceed() {
+        return exceed;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
 }
