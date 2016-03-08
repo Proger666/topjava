@@ -4,6 +4,7 @@
     <title>User list</title>
 </head>
 <body>
+<a href="index.html">Back</a>
 <h2>User list</h2>
 </body>
 </html>
