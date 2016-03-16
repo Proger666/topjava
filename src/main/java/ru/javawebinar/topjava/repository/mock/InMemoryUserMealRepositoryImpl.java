@@ -1,10 +1,14 @@
 package ru.javawebinar.topjava.repository.mock;
 
 import org.springframework.stereotype.Repository;
+import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.repository.UserMealRepository;
+import ru.javawebinar.topjava.util.TimeUtil;
 import ru.javawebinar.topjava.util.UserMealsUtil;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
@@ -55,8 +59,10 @@ public class InMemoryUserMealRepositoryImpl implements UserMealRepository {
     }
 
     @Override
-    public Collection<UserMeal> getAll(int userId) {
+    public Collection<UserMeal> getAll(int userId, LocalDate fromDate, LocalDate toDate, LocalTime fromTime, LocalTime toTime) {
         return repository.get(userId).values().stream()
+                .filter(um -> TimeUtil.isBetween(um.getDateTime().toLocalDate(), fromDate, toDate))
+                .filter(um -> TimeUtil.isBetween(um.getDateTime().toLocalTime(),fromTime,toTime))
                 .sorted(Comparator.comparing(UserMeal::getDateTime))
                 .collect(Collectors.toList());
     }

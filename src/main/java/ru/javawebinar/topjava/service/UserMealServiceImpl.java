@@ -24,6 +24,12 @@ public class UserMealServiceImpl implements UserMealService {
         return repository.save(user);
     }
 
+    @Override
+    public User save(User user) {
+        // TODO: 16.03.2016  
+        return null;
+    }
+
     public void delete(int id) {
         ExceptionUtil.check(repository.delete(id), id);
     }
@@ -38,6 +44,11 @@ public class UserMealServiceImpl implements UserMealService {
 
     public Collection<User> getAll() {
         return repository.getAll();
+    }
+
+    @Override
+    public void update(UserMeal userMeal) {
+
     }
 
     public void update(User user) {

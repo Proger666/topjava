@@ -2,6 +2,8 @@ package ru.javawebinar.topjava.repository;
 
 import ru.javawebinar.topjava.model.UserMeal;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Map;
 
@@ -16,5 +18,5 @@ public interface UserMealRepository {
 
     UserMeal get(int userId,int mealId);
 
-    Collection<UserMeal> getAll(int userId);
+    Collection<UserMeal> getAll(int userId, LocalDate fromDate, LocalDate toDate, LocalTime fromTime, LocalTime toTime);
 }
