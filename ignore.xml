@@ -24,6 +24,9 @@
 .idea
 *.iml
 out
+_windows
+keymaps
+config
 gen</template>
     </userTemplates>
   </component>
