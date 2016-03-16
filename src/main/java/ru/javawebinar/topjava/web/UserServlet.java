@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.javawebinar.topjava.model.Role;
+import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.repository.UserMealRepository;
 import ru.javawebinar.topjava.repository.UserRepository;
@@ -33,19 +35,19 @@ public class UserServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String id = request.getParameter("id");
-        UserMeal userMeal = new UserMeal(id.isEmpty() ? null : Integer.valueOf(id),
-                LocalDateTime.parse(request.getParameter("dateTime")),
-                request.getParameter("description"),
-                Integer.valueOf(request.getParameter("calories")));
-        LOG.info(userMeal.isNew() ? "Create {}" : "Update {}", userMeal);
-        repository.save(userMeal);
-        response.sendRedirect("meals");
+        User user = new User(id.isEmpty() ? null : Integer.valueOf(id),
+                String.valueOf(request.getParameter("name")),
+                String.valueOf(request.getParameter("email")),
+                String.valueOf(request.getParameter("password")),
+                Role.ROLE_USER);
+        LOG.info(user.isNew() ? "Create {}" : "Update {}", user);
+        repository.save(user);
+        response.sendRedirect("users");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -19,4 +19,5 @@ public interface UserMealRepository {
     UserMeal get(int userId,int mealId);
 
     Collection<UserMeal> getAll(int userId, LocalDate fromDate, LocalDate toDate, LocalTime fromTime, LocalTime toTime);
+
 }

@@ -43,7 +43,7 @@ public class MealServlet extends HttpServlet {
                 request.getParameter("description"),
                 Integer.valueOf(request.getParameter("calories")));
         LOG.info(userMeal.isNew() ? "Create {}" : "Update {}", userMeal);
-        repository.save(userMeal);
+        repository.save(Integer.valueOf(request.getParameter("id")), userMeal);
         response.sendRedirect("meals");
     }
 

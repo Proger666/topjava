@@ -33,15 +33,15 @@
         <input type="hidden" name="id" value="${user.id}">
         <dl>
             <dt>Name:</dt>
-            <dd><input type="text" value="${user.name}" name="UserName"></dd>
+            <dd><input type="text" value="${user.name}" name="name"></dd>
         </dl>
         <dl>
             <dt>Email:</dt>
-            <dd><input type="text" value="${user.email}" size=40 name="Email"></dd>
+            <dd><input type="text" value="${user.email}" size=40 name="email"></dd>
         </dl>
         <dl>
             <dt>Password:</dt>
-            <dd><input type="password" value="${user.password}" name="Password"></dd>
+            <dd><input type="password" value="${user.password}" name="password"></dd>
         </dl>
         <button type="submit">Save</button>
         <button onclick="window.history.back()">Cancel</button>

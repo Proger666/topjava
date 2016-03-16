@@ -4,20 +4,23 @@ import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * GKislin
  * 15.06.2015.
  */
 public interface UserMealService {
-    User save(User user);
+    UserMeal save(int userId, UserMeal userMeal);
 
-    void delete(int id) throws NotFoundException;
+    void delete(int userId, int mealId) throws NotFoundException;
 
-    User get(int id) throws NotFoundException;
+    UserMeal get(int userId, int mealId) throws NotFoundException;
 
-    Collection<User> getAll();
+    List<UserMeal> getAll(int userId, LocalDate fromDate, LocalDate toDate, LocalTime fromTime, LocalTime toTime);
 
-    void update(UserMeal userMeal);
+    void update(int userId, UserMeal userMeal);
 }
