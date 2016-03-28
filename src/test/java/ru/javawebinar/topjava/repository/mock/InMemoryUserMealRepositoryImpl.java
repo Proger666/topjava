@@ -20,7 +20,7 @@ import static ru.javawebinar.topjava.UserTestData.USER_ID;
  * GKislin
  * 15.09.2015.
  */
-@Repository
+
 public class InMemoryUserMealRepositoryImpl implements UserMealRepository {
 
     public static final Comparator<UserMeal> USER_MEAL_COMPARATOR = Comparator.comparing(UserMeal::getDateTime).reversed();
@@ -57,6 +57,11 @@ public class InMemoryUserMealRepositoryImpl implements UserMealRepository {
     public boolean delete(int id, int userId) {
         Map<Integer, UserMeal> userMeals = repository.get(userId);
         return userMeals != null && userMeals.remove(id) != null;
+    }
+
+    @Override
+    public boolean delete(int userId) {
+        return false;
     }
 
     @Override

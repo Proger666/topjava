@@ -7,6 +7,11 @@ import java.time.LocalDateTime;
  * 11.01.2015.
  */
 public class UserMeal extends BaseEntity {
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private  Integer id;
 
     private final LocalDateTime dateTime;
