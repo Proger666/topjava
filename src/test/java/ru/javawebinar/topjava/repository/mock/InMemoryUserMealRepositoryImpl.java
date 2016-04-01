@@ -59,10 +59,7 @@ public class InMemoryUserMealRepositoryImpl implements UserMealRepository {
         return userMeals != null && userMeals.remove(id) != null;
     }
 
-    @Override
-    public boolean delete(int userId) {
-        return false;
-    }
+
 
     @Override
     public UserMeal get(int id, int userId) {

@@ -12,7 +12,7 @@ public class UserMeal extends BaseEntity {
         this.id = id;
     }
 
-    private  Integer id;
+
 
     private LocalDateTime dateTime;
 

@@ -8,6 +8,14 @@ import java.util.Objects;
 
 import static ru.javawebinar.topjava.model.BaseEntity.START_SEQ;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.Arrays;
+import java.util.List;
+
+import static java.time.LocalDateTime.of;
+import static ru.javawebinar.topjava.model.BaseEntity.START_SEQ;
+
 /**
  * GKislin
  * 13.03.2015.
@@ -16,38 +24,47 @@ public class MealTestData {
 
     public static final ModelMatcher<UserMeal, String> MATCHER = new ModelMatcher<>(UserMeal::toString);
 
-    public static final int MEAL_ID_FIRST = START_SEQ;
-    public static final int MEAL_ID_SECOND = START_SEQ + 1;
+    public static final int MEAL1_ID = START_SEQ + 2;
+    public static final int ADMIN_MEAL_ID = START_SEQ + 8;
 
-    public static final UserMeal MEAL_FIRST = new UserMeal(MEAL_ID_FIRST,LocalDateTime.now(), "slon", 2000);
-    public static final UserMeal MEAL_SECOND = new UserMeal(MEAL_ID_SECOND,LocalDateTime.now(), "ovca", 2000);
+    public static final UserMeal MEAL1 = new UserMeal(MEAL1_ID, LocalDateTime.of(2015, Month.MAY, 30, 10, 0), "Завтрак", 500);
+    public static final UserMeal MEAL2 = new UserMeal(MEAL1_ID + 1, LocalDateTime.of(2015, Month.MAY, 30, 13, 0), "Обед", 1000);
+    public static final UserMeal MEAL3 = new UserMeal(MEAL1_ID + 2, LocalDateTime.of(2015, Month.MAY, 30, 20, 0), "Ужин", 500);
+    public static final UserMeal MEAL4 = new UserMeal(MEAL1_ID + 3, LocalDateTime.of(2015, Month.MAY, 31, 10, 0), "Завтрак", 500);
+    public static final UserMeal MEAL5 = new UserMeal(MEAL1_ID + 4, LocalDateTime.of(2015, Month.MAY, 31, 13, 0), "Обед", 1000);
+    public static final UserMeal MEAL6 = new UserMeal(MEAL1_ID + 5, LocalDateTime.of(2015, Month.MAY, 31, 20, 0), "Ужин", 510);
+    public static final UserMeal ADMIN_MEAL = new UserMeal(ADMIN_MEAL_ID, LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч", 510);
+    public static final UserMeal ADMIN_MEAL2 = new UserMeal(ADMIN_MEAL_ID + 1, LocalDateTime.of(2015, Month.JUNE, 1, 21, 0), "Админ ужин", 1500);
 
-    public static class TestMeal extends UserMeal {
+    public static final List<UserMeal> USER_MEALS = Arrays.asList(MEAL6, MEAL5, MEAL4, MEAL3, MEAL2, MEAL1);
 
-        public TestMeal(Integer id, LocalDateTime dateTime, String description, int calories) {
-            super(id, dateTime, description, calories);
-        }
+    public static UserMeal getCreated() {
+        return new UserMeal(null, of(2015, Month.JUNE, 1, 18, 0), "Созданный ужин", 300);
+    }
 
-        public TestMeal(UserMeal um) {
-            this(um.getId(), um.getDateTime(), um.getDescription(), um.getCalories());
-        }
+    public static UserMeal getUpdated() {
+        return new UserMeal(MEAL1_ID, MEAL1.getDateTime(), "Обновленный завтрак", 200);
+    }
+    public static final int MEAL1_ID = START_SEQ + 2;
+    public static final int ADMIN_MEAL_ID = START_SEQ + 8;
 
+    public static final UserMeal MEAL1 = new UserMeal(MEAL1_ID, LocalDateTime.of(2015, Month.MAY, 30, 10, 0), "Завтрак", 500);
+    public static final UserMeal MEAL2 = new UserMeal(MEAL1_ID + 1, LocalDateTime.of(2015, Month.MAY, 30, 13, 0), "Обед", 1000);
+    public static final UserMeal MEAL3 = new UserMeal(MEAL1_ID + 2, LocalDateTime.of(2015, Month.MAY, 30, 20, 0), "Ужин", 500);
+    public static final UserMeal MEAL4 = new UserMeal(MEAL1_ID + 3, LocalDateTime.of(2015, Month.MAY, 31, 10, 0), "Завтрак", 500);
+    public static final UserMeal MEAL5 = new UserMeal(MEAL1_ID + 4, LocalDateTime.of(2015, Month.MAY, 31, 13, 0), "Обед", 1000);
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) {
-                return true;
-            }
-            if (o == null || getClass() != o.getClass()) {
-                return false;
-            }
+    public static final UserMeal MEAL6 = new UserMeal(MEAL1_ID + 5, LocalDateTime.of(2015, Month.MAY, 31, 20, 0), "Ужин", 510);
+    public static final UserMeal ADMIN_MEAL = new UserMeal(ADMIN_MEAL_ID, LocalDateTime.of(2015, Month.JUNE, 1, 14, 0), "Админ ланч", 510);
+    public static final UserMeal ADMIN_MEAL2 = new UserMeal(ADMIN_MEAL_ID + 1, LocalDateTime.of(2015, Month.JUNE, 1, 21, 0), "Админ ужин", 1500);
 
-            TestMeal that = (TestMeal) o;
+    public static final List<UserMeal> USER_MEALS = Arrays.asList(MEAL6, MEAL5, MEAL4, MEAL3, MEAL2, MEAL1);
 
-            return Objects.equals(that.getId(), that.getId())
-                    && Objects.equals(that.getCalories(), that.getCalories())
-                    && Objects.equals(that.getDateTime() , that.getDateTime())
-                    && Objects.equals(that.getDescription(), that.getDescription());
-        }
+    public static UserMeal getCreated() {
+        return new UserMeal(null, of(2015, Month.JUNE, 1, 18, 0), "Созданный ужин", 300);
+    }
+
+    public static UserMeal getUpdated() {
+        return new UserMeal(MEAL1_ID, MEAL1.getDateTime(), "Обновленный завтрак", 200);
     }
 }

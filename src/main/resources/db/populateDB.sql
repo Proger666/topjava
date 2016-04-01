@@ -24,9 +24,3 @@ INSERT INTO meals (date_time, description, calories, user_id) VALUES
   ('2015-05-31 20:00:00', 'Ужин', 510, 100000),
   ('2015-06-01 14:00:00', 'Админ ланч', 510, 100001),
   ('2015-06-01 21:00:00', 'Админ ужин', 1500, 100001);
-
-INSERT INTO meals (id, description, calories, datetime)
-    VALUES ('100001', 'Havchik1', '300', '2016-2-13');
-
-INSERT INTO meals (id, description, calories, datetime)
-VALUES ('100000','Havchik2', '3300', '2016-2-1');
