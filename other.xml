@@ -49,12 +49,10 @@
   </component>
   <component name="PersistenceGenerationSettings">
     <option name="addToUnit" value="true" />
-    <option name="entityPrefix" value="UserMeal" />
-    <option name="generateAnnotations" value="false" />
-    <option name="generateSingleXml" value="true" />
-    <option name="ENTITY_PREFIX" value="UserMeal" />
-    <option name="GENERATE_ANNOTATIONS" value="false" />
-    <option name="GENERATE_XML" value="true" />
+    <option name="generateColumnProperties" value="true" />
+    <option name="generateDefaultRelationships" value="true" />
+    <option name="GENERATE_COLUMN_PROPERTIES" value="true" />
     <option name="ADD_TO_UNIT" value="true" />
+    <option name="GENERATE_DEFAULT_RELATIONSHIPS" value="true" />
   </component>
 </application>
