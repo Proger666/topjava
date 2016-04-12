@@ -26,7 +26,7 @@ package ru.javawebinar.topjava.model;
 public class User extends NamedEntity {
 
     public static final String DELETE = "User.delete";
-    public static final String ALL_SORTED = "User.getAllSorted";
+    public static final String ALL_SORTED = "User.getAlLSorted";
     public static final String BY_EMAIL = "User.getByEmail";
 
     @Column(name = "email", nullable = false, unique = true)
