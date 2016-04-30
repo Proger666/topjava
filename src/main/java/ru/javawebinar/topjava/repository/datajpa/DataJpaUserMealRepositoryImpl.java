@@ -18,27 +18,35 @@ public class DataJpaUserMealRepositoryImpl implements UserMealRepository{
     @Autowired
     ProxyMealRepository proxy;
 
+    @Autowired
+    ProxyUserRepository userProxy;
+
     @Override
     public UserMeal save(UserMeal userMeal, int userId) {
+    if (!userMeal.isNew() && get(userMeal.getId(), userId) == null) {
+            return null;
+        }
+        userMeal.setUser(userProxy.getOne(userId));
+        return proxy.save(userMeal);
     }
 
     @Override
     public boolean delete(int id, int userId) {
-        return false;
+        return proxy.delete(id,userId) != 0;
     }
 
     @Override
     public UserMeal get(int id, int userId) {
-        return null;
+        return proxy.get(id,userId);
     }
 
     @Override
     public List<UserMeal> getAll(int userId) {
-        return null;
+        return proxy.getAll(userId);
     }
 
     @Override
     public List<UserMeal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
-        return null;
+        return proxy.getBetween(startDate,endDate,userId);
     }
 }
