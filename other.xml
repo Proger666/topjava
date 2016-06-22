@@ -47,6 +47,10 @@
     <option name="SEND_ENVIRONMENT_VARIABLES_TO_SERVER" value="false" />
     <option name="SHOW_PATH" value="true" />
   </component>
+  <component name="JavaFxSettings">
+    <option name="pathToSceneBuilder" value="C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe" />
+    <option name="myPathToSceneBuilder" value="C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe" />
+  </component>
   <component name="PersistenceGenerationSettings">
     <option name="addToUnit" value="true" />
     <option name="generateColumnProperties" value="true" />
